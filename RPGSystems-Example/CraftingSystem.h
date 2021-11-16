@@ -9,17 +9,23 @@ public:
 	CraftingSystem();
 	virtual void CheckSystem();
 	virtual void AddToInt();
+	virtual void CheckInventory();
+
+private:
+	int someInt;
+	int iron;
+	int ironChestplate;
+	int armoredGloves;
+	int leather;
+
 	struct PlayerState
 	{
 		bool wantsToCraft;
 		bool displayInv;
-	}
-private:
-	int someInt;
+	};
 
 };
 
 
 void TestCraftingSystem();
-void InitializeGame(PlayerState& playerState);
 
