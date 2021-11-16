@@ -3,18 +3,7 @@
 #include <string>
 #include <vector>
 
-class SkillSystem {
-
-public:
-	std::vector <Skill> SkillList;
-
-	SkillSystem();
-
-	void AddSkill(std::vector <Skill>* SkillList, std::string Name);
-	Skill UseSkill(std::vector <Skill>* SkillList, Skill* skill);
-};
-
-class Skill{
+class Skill {
 
 public:
 	std::string name;
@@ -22,6 +11,20 @@ public:
 	int uses;
 
 	Skill(std::string Name);
+	void Use();
+};
+
+
+
+class SkillSystem {
+
+public:
+	std::vector <Skill> SkillList;
+
+	SkillSystem();
+
+	void AddSkill(std::string Name);
+	void UseSkill(std::string Name);
 };
 
 void TestSkillsSystem();

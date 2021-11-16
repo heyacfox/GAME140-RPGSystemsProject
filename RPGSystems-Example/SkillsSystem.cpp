@@ -1,13 +1,6 @@
 #include "SkillsSystem.h"
 
 
-
-SkillSystem::SkillList()
-{
-
-}
-
-
 Skill::Skill(std::string Name)
 {
 	name = Name;
@@ -15,7 +8,17 @@ Skill::Skill(std::string Name)
 	uses = 0;
 }
 
-void AddSkill(std::vector <Skill> SkillList, std::string name)
+void Skill::Use()
+{
+	uses += 1;
+	return;
+}
+
+SkillSystem::SkillSystem()
+{
+}
+
+void SkillSystem::AddSkill(std::string name)
 {
 	Skill MySkill = Skill(name);
 	for (unsigned int i = 0; i < SkillList.size(); ++i)
@@ -29,30 +32,36 @@ void AddSkill(std::vector <Skill> SkillList, std::string name)
 	SkillList.push_back(MySkill);
 }
 
-void  UseSkill(std::vector <Skill> SkillList, Skill& skill)
+void SkillSystem::UseSkill(std::string name)
 {
+	Skill MySkill = Skill("Heal");
+	int p = 0;
 	bool found = false;
 
 	for (unsigned int i = 0; i < SkillList.size(); ++i)
 	{
-		if (SkillList[i].name == skill.name)
+		if (SkillList[i].name == name)
 		{
+			p = i;
 			found = true;
 		}
 	}
-	
+
 	if (found)
 	{
-		skill.uses += 1;
+		SkillList[p].Use();
+		printf("%s: lvl:%d | uses:%d\n", SkillList[p].name.c_str(), SkillList[p].lvl, SkillList[p].uses);
 
 		//Upgrade to lvl 2
-		if (skill.uses == 10 || skill.uses == 40 || skill.uses == 100 || skill.uses == 250)
+		if (SkillList[p].uses == 10 || SkillList[p].uses == 40 || SkillList[p].uses == 100 || SkillList[p].uses == 250)
 		{
-			skill.lvl += 1;
-			printf("\n%s skill has upgraded its level to level %d\n\n", skill.name.c_str(), skill.lvl);
+			SkillList[p].lvl += 1;
+			printf("\n%s skill has upgraded its level to level %d\n\n", SkillList[p].name.c_str(), SkillList[p].lvl);
 		}
 	}
+	return;
 }
+
 
 
 
@@ -66,8 +75,7 @@ void TestSkillsSystem() {
 
 	for (unsigned int i = 0; i < 260; ++i)
 	{
-		UseSkill(MySkill);
-		printf("%s: lvl:%d | uses:%d\n",MySkill.name.c_str(), MySkill.lvl, MySkill.uses);
+		MySkills.UseSkill("Heal");
 	}
 
 }
