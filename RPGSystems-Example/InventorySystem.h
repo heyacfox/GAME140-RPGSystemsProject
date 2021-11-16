@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 class InventorySystem {
 
@@ -11,16 +12,21 @@ public:
 	virtual void DropInventory();
 	virtual void UseInventory();
 	virtual void DestroyInventory();
+	virtual void QuestInventory();
 private:
 	int InventorySize;
 	int InventoryItems;
-	std::string(Sword)
+	int PlayerPosition;
+	int SwordPosition;
+	int SwordAmount;
+	std::string Sword;
+	int ApplePosition;
+	int AppleAmount;
+	std::string Apple;
+	int QuestAmount;
+	std::string Sprite;
+	struct AppleState
 	{
-
-	};
-	std::string(Apple)
-	{
-		
 	};
 };
 
