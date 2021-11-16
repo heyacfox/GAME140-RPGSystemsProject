@@ -6,7 +6,8 @@
 //constructor
 void ShopItem::ShowItemShop()
 {
-	printf("%s\n %d\n %d\n", shopItemName.c_str(), shopItemCost, shopItemQuantity);
+	printf("Item Name: %s | Cost: %d gold | Quantity: %d \n", shopItemName.c_str(), shopItemCost, shopItemQuantity);
+	
 }
 
 ShopItem::ShopItem(std::string ItemName, int ItemCost, int ItemQuantity)
@@ -16,17 +17,16 @@ ShopItem::ShopItem(std::string ItemName, int ItemCost, int ItemQuantity)
 	shopItemQuantity = ItemQuantity;
 }
 
-ShopItem InstanceofShopItem = ShopItem("Potion", 20, 20)
-{
-	InstanceofShopItem.ShowShopItem();
-}
-
-
-
-
 
 
 
 void TestShopSystem() {
-	printf("The shop system doesn't do anything yet...\n");
+	ShopSystem shopSystem1 = ShopSystem();
+	ShopItem item1 = ShopItem("Potion", 20, 5);
+	shopSystem1.itemList.push_back(item1);
+}
+
+void ShopSystem::BuyItem()
+{
+
 }
