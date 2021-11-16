@@ -12,9 +12,8 @@ public:
 	virtual void AddToInt();
 	virtual void ActivateQuest();
 private:
-	std::vector < std::string > numberOfQuests;
-	
-
+	bool Quest1;
+	int numberOfQuests;
 };
 
 void TestQuestSystem();

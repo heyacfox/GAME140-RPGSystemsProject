@@ -2,22 +2,29 @@
 #include <stdio.h>
 #include <string>
 
-QuestSystem::QuestSystem()
+QuestSystem::QuestSystem() //
 {
-	std::vector<int> numberOfQuests = { 1 };
-	std::string activeQuest = "Quest1";
+	int numberOfQuests = { 0 };
+	std::string activeQuest = "Quest1Act";
+	const char* questDescription = "Quest1D";
+	bool Quest1 = false;
 }
 
-void QuestSystem::CheckSystem() {
-	printf("SomeSystem has been checked with an int of %d!\n", numberOfQuests);
+void QuestSystem::CheckSystem() //once the player wants to activate 
+{
+	printf("You have %d quests activated!\n", numberOfQuests);
 }
 
 void QuestSystem::AddToInt() {
 	numberOfQuests = numberOfQuests + 1;
 }
 
-void QuestSystem::ActivateQuest() {
-
+void QuestSystem::ActivateQuest() 
+{
+	if (numberOfQuests.size() == 1)
+	{
+		printf("%s. Now go!\n", questDescription);
+	}
 }
 
 void TestQuestSystem() {
