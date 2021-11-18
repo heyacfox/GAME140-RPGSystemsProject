@@ -9,6 +9,7 @@ public:
 	virtual void AddToInt();
 	virtual void CheckPlayerLvl();
 	virtual void GainXP(int exp);
+	int lvl = 1;
 
 private:
 	int HP = 100;
@@ -17,7 +18,6 @@ private:
 	int Def = 10;
 	int Intel = 10;
 	int Spd = 15;
-	int lvl = 1;
 	int exp = 0;
 
 	int currentXP = 0;
