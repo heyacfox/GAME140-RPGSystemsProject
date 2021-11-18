@@ -8,10 +8,11 @@ EquipmentSystem::EquipmentSystem()
 {
 	defenseInt = 1;
 	defenseInt2 = 10;
+	SteelChestplate = 9;
 }
 
 void EquipmentSystem::NoGearCheck() {
-	printf("EquipmentSystem has been checked! No gear equiped! Your defense is % d!\n", defenseInt);
+	printf("EquipmentSystem has been checked! No gear equiped! Your defense has risen by %d !\n", defenseInt);
 }
 
 void EquipmentSystem::DefenseIncreaseCheck() {

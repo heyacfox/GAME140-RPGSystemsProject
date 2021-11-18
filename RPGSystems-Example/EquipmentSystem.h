@@ -1,5 +1,6 @@
 #pragma once
 #include <stdio.h>
+#include <string>
 
 class EquipmentSystem {
 
@@ -11,7 +12,6 @@ public:
 	virtual void AddToInt();
 
 	
-			
 	virtual void CheckSystem3();
 	virtual void CheckSystem4();
 	virtual void SubtractToInt();
@@ -21,6 +21,7 @@ public:
 private:
 	int defenseInt;
 	int defenseInt2;
+	std::string SteelChestplate;
 };
 
 
