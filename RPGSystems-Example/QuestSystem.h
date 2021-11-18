@@ -14,6 +14,9 @@ public:
 private:
 	bool Quest1;
 	int numberOfQuests;
+	std::string activeQuest;
+	const char* questDescription;
+
 };
 
 void TestQuestSystem();
