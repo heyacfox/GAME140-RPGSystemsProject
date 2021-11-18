@@ -9,11 +9,14 @@
 #include "QuestSystem.h"
 #include "ShopSystem.h"
 #include "SkillsSystem.h"
+#include "DependentSystem.h"
 
 
 int main() {
 	printf("-------\n--Some System Test--\n");
 	TestSomeSystem();
+	printf("-------\n--Dependent System Test--\n");
+	TestDependentSystem();
 	printf("\n-------\n--Crafting System Test--\n");
 	TestCraftingSystem();
 	printf("\n-------\n--Equipment System Test--\n");
