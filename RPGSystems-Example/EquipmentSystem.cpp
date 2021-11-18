@@ -7,6 +7,7 @@
 EquipmentSystem::EquipmentSystem()
 {
 	defenseInt = 1;
+	defenseInt2 = 10;
 }
 
 void EquipmentSystem::CheckSystem1() {
@@ -14,7 +15,7 @@ void EquipmentSystem::CheckSystem1() {
 }
 
 void EquipmentSystem::CheckSystem2() {
-	printf("EquipmentSystem has been checked! Equiping the Steel Chestplate increased defense by % d!\n", defenseInt);
+	printf("EquipmentSystem has been checked! Equiping the Steel Chestplate increased defense by % d!\n\n", defenseInt);
 }
 
 void EquipmentSystem::AddToInt() {
@@ -26,31 +27,23 @@ void TestEquipmentSystem() {
 	someSystemInstance.CheckSystem1();
 	someSystemInstance.AddToInt();
 	someSystemInstance.CheckSystem2();
+	someSystemInstance.CheckSystem3();
+	someSystemInstance.SubtractToInt();
+	someSystemInstance.CheckSystem4();
 }
 
 	//Test unequip function
-EquipmentSystem2::EquipmentSystem2()
-{
-	defenseInt2 = 10;
-}
 
-void EquipmentSystem2::CheckSystem3() {
+
+void EquipmentSystem::CheckSystem3() {
 	printf("EquipmentSystem has been checked! The Steel Chestplate has increased your defense by % d\n", defenseInt2);
 }
 
-void EquipmentSystem2::SubtractToInt()
+void EquipmentSystem::SubtractToInt()
 {
 	defenseInt2 = defenseInt2 - 9;
 }
 
-void EquipmentSystem2::CheckSystem4() {
+void EquipmentSystem::CheckSystem4() {
 	printf("EquipmentSystem has been checked! You unequied The Steel Chestplate and your defense has fallen to % d!\n", defenseInt2);
-}
-
-
-void TestEquipmentSystem2() {
-	EquipmentSystem2 someSystemInstance = EquipmentSystem2();
-	someSystemInstance.CheckSystem3();
-	someSystemInstance.SubtractToInt();
-	someSystemInstance.CheckSystem4();
 }

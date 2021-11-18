@@ -10,8 +10,17 @@ public:
 	virtual void CheckSystem2();
 	virtual void AddToInt();
 
+	
+			
+	virtual void CheckSystem3();
+	virtual void CheckSystem4();
+	virtual void SubtractToInt();
+
+
+
 private:
 	int defenseInt;
+	int defenseInt2;
 };
 
 
@@ -20,16 +29,11 @@ class EquipmentSystem2 {
 
 public:
 	//test unequip function
-	EquipmentSystem2();
-			
-	void CheckSystem3();
-	void CheckSystem4();
-	virtual void SubtractToInt();
+	
 
 private:
-	int defenseInt2;
+	
 
 };
 
 void TestEquipmentSystem();
-void TestEquipmentSystem2();
