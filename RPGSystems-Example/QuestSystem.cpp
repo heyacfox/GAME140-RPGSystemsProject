@@ -8,6 +8,7 @@ QuestSystem::QuestSystem() //
     activeQuest = "Quest1Act"; //std::string
 	 questDescription = "Quest1 Activated"; //const char*
 	 Quest1 = false; //bool
+	 Quest1Complete = false; //bool
 }
 
 void QuestSystem::CheckSystem() //once the player wants to activate the quest, the code will check if it has done what is needed to have the quest available
@@ -24,6 +25,18 @@ void QuestSystem::ActivateQuest()
 	if (numberOfQuests == 1)
 	{
 		printf("%s. Now go!\n", questDescription);
+
+		Quest1Complete = true;
+	}
+}
+
+void QuestSystem::CompleteQuest()
+{
+	if (Quest1Complete = true)
+	{
+		numberOfQuests = numberOfQuests - 1;
+		printf("You have %d quests activated!\n", numberOfQuests);
+		printf("Quest Complete. GO HOME!\n");
 	}
 }
 
@@ -33,6 +46,8 @@ void TestQuestSystem() {
 	someSystemInstance.AddToInt();
 	someSystemInstance.CheckSystem();	
 	someSystemInstance.ActivateQuest();
+	//someSystemInstance.CheckSystem();
+	someSystemInstance.CompleteQuest();
 
 }
 
