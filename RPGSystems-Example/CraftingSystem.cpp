@@ -1,5 +1,7 @@
 #include "CraftingSystem.h"
 #include <vector>
+#include "InventorySystem.h"
+#include "PlayerStatsSystem.h"
 
 
 
@@ -33,7 +35,7 @@ void CraftingSystem::CraftItem(std::string item)
 					printf("insufficient items to craft.\n");
 				}
 			}
-			else if (item == "ironChestplate")
+			else if (item == "ironChestplate" && lvl == "2")
 			{
 				if (iron >= 2)
 				{
