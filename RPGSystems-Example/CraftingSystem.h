@@ -1,5 +1,6 @@
 #pragma once
 #include <stdio.h>
+#include <string>
 
 
 
@@ -7,9 +8,9 @@ class CraftingSystem {
 
 public:
 	CraftingSystem();
-	virtual void CheckSystem();
-	virtual void AddToInt();
 	virtual void CheckInventory();
+	virtual void CheckRecipes();
+	virtual void CraftItem(std::string item);
 
 private:
 	int someInt;
@@ -17,13 +18,6 @@ private:
 	int ironChestplate;
 	int armoredGloves;
 	int leather;
-
-	struct PlayerState
-	{
-		bool wantsToCraft;
-		bool displayInv;
-	};
-
 };
 
 

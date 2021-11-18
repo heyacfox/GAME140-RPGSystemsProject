@@ -1,4 +1,5 @@
 #include "CraftingSystem.h"
+#include <vector>
 
 
 
@@ -10,37 +11,12 @@ CraftingSystem::CraftingSystem()
 	ironChestplate = 0;
 	armoredGloves = 0;
 	leather = 1;
-	bool wantsToCraft = false;
-	bool displayInv = false;
 }
 
-void CraftingSystem::CheckSystem() {
-	printf("SomeSystem has been checked with an int of %d!\n", someInt);
 
-}
-
-void CraftingSystem::AddToInt()
+void CraftingSystem::CraftItem(std::string item)
 {
-	someInt = someInt + 1;
-}
-
-void CraftingSystem::CheckInventory()
-{
-	bool displayInv = true;
-
-	if (bool displayInv = true)
-	{
-		printf("You have %d Iron.\n", iron);
-
-
-	}
-
-
-	if (bool wantsToCraft = true)
-	{
-		bool displayInv = true;
-		{
-			if (armoredGloves)
+			if (item == "armoredGloves")
 			{
 				if (iron >= 1 && leather >= 1)
 				{
@@ -50,22 +26,23 @@ void CraftingSystem::CheckInventory()
 
 					printf("You have crafted 1 set of Armored Gloves.\n");
 					printf("You have %d Iron left.\n", iron);
-					printf("You have %d Iron left.\n", leather);
+					printf("You have %d Leather left.\n\n", leather);
 				}
 				else
 				{
 					printf("insufficient items to craft.\n");
 				}
 			}
-			else if (ironChestplate)
+			else if (item == "ironChestplate")
 			{
 				if (iron >= 2)
 				{
 					ironChestplate++;
-					iron - 2;
+					iron--;
+					iron--;
 
 					printf("You have crafted 1 Iron ChestPlate.\n");
-					printf("You have %d Iron left.\n", iron);
+					printf("You have %d Iron left.\n\n", iron);
 				}
 				else
 				{
@@ -73,10 +50,24 @@ void CraftingSystem::CheckInventory()
 				}
 
 			}
-		}
-		//if (someCraftingInstance.CheckSystem(Inventory))
+		
+	
+}
 
-	}
+void CraftingSystem::CheckInventory()
+{
+		printf("You have %d Iron.\n", iron);
+		printf("You have %d Leather.\n", leather);
+		printf("You have %d Iron Chestplate.\n", ironChestplate);
+		printf("You have %d Armored Gloves.\n\n", armoredGloves);
+
+}
+
+void CraftingSystem::CheckRecipes()
+{
+	printf("The Iron Chestplate needs two Iron to craft it.\n");
+	printf("The Armored Gloves need one Iron and one Leather to craft it.\n\n");
+
 }
 
 void TestCraftingSystem() {
@@ -84,10 +75,10 @@ void TestCraftingSystem() {
 
 
 	CraftingSystem someCraftingInstance = CraftingSystem();
-	someCraftingInstance.CheckSystem();
 	someCraftingInstance.CheckInventory();
-	someCraftingInstance.AddToInt();
-	someCraftingInstance.CheckSystem();
+	someCraftingInstance.CheckRecipes();
+	someCraftingInstance.CraftItem("armoredGloves");
+	someCraftingInstance.CraftItem("ironChestplate");
 
 
 
