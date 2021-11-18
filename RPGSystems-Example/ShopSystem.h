@@ -3,6 +3,13 @@
 #include <string>
 #include <vector>
 
+enum Item
+{
+	Item_Potion,
+	Item_Sword,
+	Item_Horse
+};
+
 class ShopItem
 {
 public:
@@ -20,8 +27,10 @@ class ShopSystem
 {
 public:
 	int playerGold;
-	void BuyItem();
+	void BuyItem(Item Item);
 	std::vector <ShopItem> itemList;
 };
+
+
 
 void TestShopSystem();
