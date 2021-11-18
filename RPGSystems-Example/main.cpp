@@ -18,8 +18,6 @@ int main() {
 	TestCraftingSystem();
 	printf("\n-------\n--Equipment System Test--\n");
 	TestEquipmentSystem();
-	printf("\n-------\n--Equipment System2 Test--\n");
-	TestEquipmentSystem2();
 	printf("\n-------\n--Inventory System Test--\n");
 	TestInventorySystem();
 	printf("\n-------\n--Player Stats System Test--\n");
