@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <iostream>
 
 class InventorySystem {
 
@@ -13,6 +14,10 @@ public:
 	virtual void UseInventory();
 	virtual void DestroyInventory();
 	virtual void QuestInventory();
+	virtual void CraftingInventory();
+	virtual void ShopInventory();
+	virtual void EquipInventory();
+	//virtual std::to_string GetSword();
 private:
 	int InventorySize;
 	int InventoryItems;
@@ -28,6 +33,9 @@ private:
 	struct AppleState
 	{
 	};
+	int ChestplatePosition;
+	std::string Chestplate;
+	int ChestplateAmount;
 };
 
 void TestInventorySystem();
