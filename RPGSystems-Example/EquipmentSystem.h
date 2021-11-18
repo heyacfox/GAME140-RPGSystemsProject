@@ -6,8 +6,8 @@ class EquipmentSystem {
 public:
 	//test equip function
 	EquipmentSystem();
-	virtual void CheckSystem1();
-	virtual void CheckSystem2();
+	virtual void NoGearCheck();
+	virtual void DefenseIncreaseCheck();
 	virtual void AddToInt();
 
 	

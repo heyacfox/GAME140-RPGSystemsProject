@@ -10,11 +10,11 @@ EquipmentSystem::EquipmentSystem()
 	defenseInt2 = 10;
 }
 
-void EquipmentSystem::CheckSystem1() {
+void EquipmentSystem::NoGearCheck() {
 	printf("EquipmentSystem has been checked! No gear equiped! Your defense is % d!\n", defenseInt);
 }
 
-void EquipmentSystem::CheckSystem2() {
+void EquipmentSystem::DefenseIncreaseCheck() {
 	printf("EquipmentSystem has been checked! Equiping the Steel Chestplate increased defense by % d!\n\n", defenseInt);
 }
 
@@ -24,9 +24,9 @@ void EquipmentSystem::AddToInt() {
 
 void TestEquipmentSystem() {
 	EquipmentSystem someSystemInstance = EquipmentSystem();
-	someSystemInstance.CheckSystem1();
+	someSystemInstance.NoGearCheck();
 	someSystemInstance.AddToInt();
-	someSystemInstance.CheckSystem2();
+	someSystemInstance.DefenseIncreaseCheck();
 	someSystemInstance.CheckSystem3();
 	someSystemInstance.SubtractToInt();
 	someSystemInstance.CheckSystem4();
