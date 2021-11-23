@@ -1,19 +1,20 @@
 #include "InventorySystem.h"
 #include "EquipmentSystem.h"
 #include "CraftingSystem.h"
+#include "ShopSystem.h"
 
 InventorySystem::InventorySystem()
 {
 	InventorySize = 15;
 	InventoryItems = 0;
 	PlayerPosition = 1;
-	SwordPosition = 1;
+	SwordPosition = 0;
 	ApplePosition = 1;
 	ChestplatePosition = 1;
 	SwordAmount = 0;
 	AppleAmount = 0;
 	Sword = "SWORD";
-	Apple = "APPLE(%d)", AppleAmount;
+	Apple = "APPLE";
 	Chestplate = "CHESTPLATE";
 	Sprite = "SPRITE";
 	QuestAmount = 0;
@@ -111,7 +112,7 @@ void InventorySystem::CraftingInventory()
 
 void InventorySystem::ShopInventory()
 {
-
+	TestShopSystem();
 }
 
 void InventorySystem::EquipInventory()
