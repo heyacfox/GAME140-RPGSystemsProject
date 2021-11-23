@@ -1,4 +1,5 @@
 #include "QuestSystem.h"
+#include "DependentSystem.h"
 #include <stdio.h>
 #include <string>
 
@@ -10,6 +11,10 @@ QuestSystem::QuestSystem() //
 	 Quest1 = false; //bool
 	 Quest1Complete = false; //bool
 }
+
+SkillSystem::SkillSystem(QuestSystem& QuestSystemReferenceInput) :
+	QuestSystemReference(QuestSystemReferenceInput)
+{}
 
 void QuestSystem::CheckSystem() //once the player wants to activate the quest, the code will check if it has done what is needed to have the quest available
 {
@@ -41,6 +46,16 @@ void QuestSystem::CompleteQuest()
 	}
 }
 
+void SkillSystem::CheckSystem() {
+	printf("The Skill system exists.");
+}
+
+void SkillSystem::AddThreeTimes() {
+	someSystemReference.AddToInt();
+	someSystemReference.AddToInt();
+	someSystemReference.AddToInt();
+}
+
 void TestQuestSystem() {
 	QuestSystem someSystemInstance = QuestSystem();
 	someSystemInstance.CheckSystem();
@@ -52,11 +67,18 @@ void TestQuestSystem() {
 
 }
 
-
-
-
-
-
-
 //void TestQuestSystem() {}
 	//printf("The quest system doesn't do anything yet...\n");
+
+void TestSkillSystem() {
+	printf("Creating a new QuestSystem...\n");
+	QuestSystem exampleQuestSystem = QuestSystem();
+	printf("Creating a new SkillSystem...\n");
+	SkillSystem exampleSkillSystem = SkillSystem(exampleQuestSystem);
+	printf("Check directly on QuestSystem:");
+	exampleQuestSystem.CheckSystem();
+	exampleSkillSystem.AddThreeTimes();
+	printf("Check after adding three times:");
+	exampleQuestSystem.CheckSystem();
+
+}

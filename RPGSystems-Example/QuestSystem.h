@@ -21,4 +21,16 @@ private:
 
 };
 
+class SkillSystem {
+
+public:
+	SkillSystem(QuestSystem& QuestSystemReferenceInput);
+	virtual void CheckSystem();
+	virtual void AddThreeTimes();
+private:
+	QuestSystem& QuestSystemReference;
+};
+
+void TestSkillSystem();
+
 void TestQuestSystem();
