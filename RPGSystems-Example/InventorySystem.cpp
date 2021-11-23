@@ -8,14 +8,26 @@ InventorySystem::InventorySystem()
 	InventorySize = 15;
 	InventoryItems = 0;
 	PlayerPosition = 1;
-	SwordPosition = 0;
-	ApplePosition = 1;
-	ChestplatePosition = 1;
-	SwordAmount = 0;
-	AppleAmount = 0;
+	
 	Sword = "SWORD";
+	SwordPosition = 0;
+	SwordAmount = 0;
+
 	Apple = "APPLE";
+	ApplePosition = 1;
+	AppleAmount = 0;
+	
 	Chestplate = "CHESTPLATE";
+	ChestplatePosition = 1;
+	
+	Potion = "POTION":
+	PotionPosition = 0;
+	PotionAmount = 0;
+
+	Horse = "HORSE";
+	HorsePosition = 0;
+	HorseAmount = 0;
+
 	Sprite = "SPRITE";
 	QuestAmount = 0;
 
@@ -37,7 +49,7 @@ void InventorySystem::CheckInventory()
 
 void InventorySystem::AddToInventory() 
 {
-	if (InventorySize >= 0)
+	if (InventorySize > 0)
 	{
 		if (SwordPosition == PlayerPosition)
 		{
@@ -65,16 +77,171 @@ void InventorySystem::AddToInventory()
 			InventorySize = InventorySize - 1;
 			printf("Inventory size has decreased\n");
 		}
+
+		if (PotionPosition == PlayerPosition)
+		{
+			InventoryItems = InventoryItems + 1;
+			printf("%s has been picked up\n", Potion.c_str());
+			PotionAmount = PotionAmount + 1;
+			InventorySize = InventorySize - 1;
+			printf("Inventory size has decreased\n");
+		}
+
+		if (HorsePosition == PlayerPosition)
+		{
+			InventoryItems = InventoryItems + 1;
+			printf("%s has been picked up\n", Horse.c_str());
+			HorseAmount = HorseAmount + 1;
+			InventorySize = InventorySize - 1;
+			printf("Inventory size has decreased\n");
+		}
 	}
 }
 
-void InventorySystem::UseInventory()
+void InventorySystem::QuestInventory()
 {
-	printf("The %s has been used\n", Apple.c_str());
-	InventorySystem::DestroyInventory();
+	printf("You have accepted the hobo's request\n");
+	printf("You received a %s\n", Sprite.c_str());
+	QuestAmount = QuestAmount + 1;
 }
 
-void InventorySystem::DestroyInventory() 
+
+
+void InventorySystem::UseApple()
+{
+	printf("The %s has been used\n", Apple.c_str());
+	
+	InventoryItems = InventoryItems - 1;
+	InventorySize = InventorySize + 1;
+	
+	if (AppleAmount >= 1)
+	{
+		AppleAmount = AppleAmount - 1;
+	}
+	
+	else if (AppleAmount == 1)
+	{
+		AppleAmount = AppleAmount - 1;
+		ApplePosition = 0;
+	}
+}
+
+void InventorySystem::UsePotion()
+{
+	printf("The %s has been used\n", Potion.c_str());
+
+	InventoryItems = InventoryItems - 1;
+	InventorySize = InventorySize + 1;
+
+	if (PotionAmount >= 1)
+	{
+		PotionAmount = PotionAmount - 1;
+	}
+
+	else if (PotionAmount == 1)
+	{
+		PotionAmount = PotionAmount - 1;
+		PotionPosition = 0;
+	}
+}
+
+
+
+void InventorySystem::DropSword()
+{
+	InventoryItems = InventoryItems - 1;
+	InventorySize = InventorySize + 1;
+	printf("The %s was dropped\n", Sword.c_str());
+	SwordPosition = PlayerPosition;
+	SwordAmount = SwordAmount - 1;
+}
+
+
+
+void InventorySystem::ShopPotion()
+{
+	if (inventorySize > 0)
+	{
+		InventoryItems = InventoryItems + 1;
+		printf("%s has been bought\n", Potion.c_str());
+		PotionAmount = PotionAmount + 1;
+		InventorySize = InventorySize - 1;
+		printf("Inventory size has decreased\n");
+	}
+}
+
+void InventorySystem::ShopSword()
+{
+	if (inventorySize > 0)
+	{
+		InventoryItems = InventoryItems + 1;
+		printf("%s has been bought\n", Sword.c_str());
+		InventorySize = InventorySize - 1;
+		SwordAmount = SwordAmount + 1;
+		printf("Inventory size has decreased\n");
+	}
+}
+
+void InventorySystem::ShopHorse()
+{
+	if (inventorySize > 0)
+	{
+		InventoryItems = InventoryItems + 1;
+		printf("%s has been bought\n", Horse.c_str());
+		InventorySize = InventorySize - 1;
+		HorseAmount = HorseAmount + 1;
+		printf("Inventory size has decreased\n");
+	}
+}
+
+
+
+void InventorySystem::SellPotion()
+{
+	if (PotionAmount > 0)
+	{
+		InventoryItems = InventoryItems - 1;
+		printf("%s has been sold\n", Potion.c_str());
+		PotionAmount = PotionAmount - 1;
+		InventorySize = InventorySize + 1;
+	}
+}
+
+void InventorySystem::SellSword()
+{
+	if (SwordAmount > 0)
+	{
+		InventoryItems = InventoryItems - 1;
+		printf("%s has been sold\n", Sword.c_str());
+		SwordAmount = SwordAmount - 1;
+		InventorySize = InventorySize + 1;
+	}
+}
+
+void InventorySystem::SellHorse()
+{
+	if (HorseAmount > 0)
+	{
+		InventoryItems = InventoryItems - 1;
+		printf("%s has been sold\n", Horse.c_str());
+		HorseAmount = HorseAmount - 1;
+		InventorySize = InventorySize + 1;
+	}
+}
+
+
+
+void InventorySystem::EquipInventory()
+{
+	TestEquipmentSystem();
+}
+
+/*std::string InventorySystem::GetSword()
+{
+	return std::string();
+}*/
+
+void InventorySystem::DestroyInventory()
 {
 	InventoryItems = InventoryItems - 1;
 	InventorySize = InventorySize + 1;
@@ -89,22 +256,6 @@ void InventorySystem::DestroyInventory()
 	}
 }
 
-void InventorySystem::DropInventory()
-{
-	InventoryItems = InventoryItems - 1;
-	InventorySize = InventorySize + 1;
-	printf("The %s was dropped\n", Sword.c_str());
-	SwordPosition = PlayerPosition;
-	SwordAmount = SwordAmount - 1;
-}
-
-void InventorySystem::QuestInventory()
-{
-	printf("You have accepted the hobo's request\n");
-	printf("You received a %s\n", Sprite.c_str());
-	QuestAmount = QuestAmount + 1;
-}
-
 void InventorySystem::CraftingInventory()
 {
 	TestCraftingSystem();
@@ -114,16 +265,6 @@ void InventorySystem::ShopInventory()
 {
 	TestShopSystem();
 }
-
-void InventorySystem::EquipInventory()
-{
-	TestEquipmentSystem();
-}
-
-/*std::string InventorySystem::GetSword()
-{
-	return std::string();
-}*/
 
 void TestInventorySystem() 
 {
