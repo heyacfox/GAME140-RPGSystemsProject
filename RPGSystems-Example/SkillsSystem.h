@@ -25,6 +25,9 @@ public:
 
 	void AddSkill(std::string Name);
 	void UseSkill(std::string Name);
+
 };
+
+
 
 void TestSkillsSystem();
