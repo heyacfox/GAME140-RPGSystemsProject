@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include "PlayerStatsSystem.h"
 
 class Skill {
 
@@ -25,9 +26,6 @@ public:
 
 	void AddSkill(std::string Name);
 	void UseSkill(std::string Name);
-
-private:
-	SomeSystem& someSystemReference;
 };
 
 
