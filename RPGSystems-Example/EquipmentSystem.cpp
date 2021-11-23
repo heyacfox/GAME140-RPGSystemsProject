@@ -23,6 +23,7 @@ void EquipmentSystem::DefenseIncreaseCheck() {
 void EquipmentSystem::AddToInt() {
 	defenseInt = defenseInt + 9;
 	PlayerStateSystemReference.GainXP(5);
+	PlayerStateSystemReference.
 }
 
 void TestEquipmentSystem() {
