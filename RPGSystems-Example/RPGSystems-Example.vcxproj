@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CraftingSystem.h" />
+    <ClInclude Include="DependentSystem.h" />
     <ClInclude Include="EquipmentSystem.h" />
     <ClInclude Include="InventorySystem.h" />
     <ClInclude Include="Player.h" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CraftingSystem.cpp" />
+    <ClCompile Include="DependentSystem.cpp" />
     <ClCompile Include="EquipmentSystem.cpp" />
     <ClCompile Include="InventorySystem.cpp" />
     <ClCompile Include="main.cpp" />
