@@ -21,6 +21,7 @@ void QuestSystem::AddToInt() {
 }
 
 void QuestSystem::ActivateQuest() 
+// To proceed, check system for SkillList vector (1st), level int, (content set in .h file)
 {
 	if (numberOfQuests == 1)
 	{
