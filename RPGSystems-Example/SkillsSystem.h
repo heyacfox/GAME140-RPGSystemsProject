@@ -26,8 +26,6 @@ public:
 	void AddSkill(std::string Name);
 	void UseSkill(std::string Name);
 
-private:
-	SomeSystem& someSystemReference;
 };
 
 
