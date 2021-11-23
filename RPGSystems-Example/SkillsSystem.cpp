@@ -32,9 +32,11 @@ void SkillSystem::AddSkill(std::string name)
 	SkillList.push_back(MySkill);
 }
 
+// hp mp atk def intel spd
+
 void SkillSystem::UseSkill(std::string name)
 {
-	Skill MySkill = Skill("Heal");
+	Skill MySkill = Skill(name);
 	int p = 0;
 	bool found = false;
 
@@ -51,7 +53,30 @@ void SkillSystem::UseSkill(std::string name)
 	{
 		SkillList[p].Use();
 		printf("%s: lvl:%d | uses:%d\n", SkillList[p].name.c_str(), SkillList[p].lvl, SkillList[p].uses);
+		if (SkillList[p].name == "hp")
+		{
+			//
+		}
+		else if (SkillList[p].name == "mp")
+		{
 
+		}
+		else if (SkillList[p].name == "atk")
+		{
+
+		}
+		else if (SkillList[p].name == "def")
+		{
+
+		}
+		else if (SkillList[p].name == "intel")
+		{
+
+		}
+		else if (SkillList[p].name == "spd")
+		{
+
+		}
 		//Upgrade to lvl 2
 		if (SkillList[p].uses == 10 || SkillList[p].uses == 40 || SkillList[p].uses == 100 || SkillList[p].uses == 250)
 		{
