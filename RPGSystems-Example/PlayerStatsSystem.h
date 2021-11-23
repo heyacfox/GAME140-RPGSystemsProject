@@ -10,6 +10,7 @@ public:
 	virtual void CheckPlayerLvl();
 	virtual void GainXP(int exp);
 	int lvl = 1;
+	virtual void AddDef(int def);
 
 private:
 	int HP = 100;
