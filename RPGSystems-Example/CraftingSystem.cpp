@@ -1,17 +1,9 @@
 #include "CraftingSystem.h"
 #include <vector>
+//#include "InventorySystem.h"
+#include "PlayerStatsSystem.h"
 
 
-
-
-CraftingSystem::CraftingSystem()
-{
-	someInt = 1;
-	iron = 4;
-	ironChestplate = 0;
-	armoredGloves = 0;
-	leather = 1;
-}
 
 
 void CraftingSystem::CraftItem(std::string item)
@@ -33,7 +25,7 @@ void CraftingSystem::CraftItem(std::string item)
 					printf("insufficient items to craft.\n");
 				}
 			}
-			else if (item == "ironChestplate")
+			else if (item == "ironChestplate" && PlayerStatsSystemReference.lvl == 2)
 			{
 				if (iron >= 2)
 				{
@@ -44,6 +36,7 @@ void CraftingSystem::CraftItem(std::string item)
 					printf("You have crafted 1 Iron ChestPlate.\n");
 					printf("You have %d Iron left.\n\n", iron);
 				}
+
 				else
 				{
 					printf("insufficient items to craft.\n");
@@ -52,6 +45,13 @@ void CraftingSystem::CraftItem(std::string item)
 			}
 		
 	
+}
+
+
+CraftingSystem::CraftingSystem(PlayerStatsSystem& PlayerStatsSystemReferenceInput) :
+	PlayerStatsSystemReference(PlayerStatsSystemReferenceInput), 
+	leather(1), iron(4), ironChestplate(0), armoredGloves(0)
+{
 }
 
 void CraftingSystem::CheckInventory()
@@ -73,8 +73,8 @@ void CraftingSystem::CheckRecipes()
 void TestCraftingSystem() {
 
 
-
-	CraftingSystem someCraftingInstance = CraftingSystem();
+	PlayerStatsSystem examplePlayerStatsSystem = PlayerStatsSystem();
+	CraftingSystem someCraftingInstance = CraftingSystem(examplePlayerStatsSystem);
 	someCraftingInstance.CheckInventory();
 	someCraftingInstance.CheckRecipes();
 	someCraftingInstance.CraftItem("armoredGloves");
