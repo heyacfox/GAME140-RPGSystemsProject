@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include "PlayerStatsSystem.h"
 
 class Skill {
 
@@ -24,7 +25,19 @@ public:
 	SkillSystem();
 
 	void AddSkill(std::string Name);
-	void UseSkill(std::string Name);
+	void UseSkill(PlayerStatsSystem& SkillEffectRefIn, std::string Name);
+
+};
+
+
+class SkillEffect {
+public:
+	SkillEffect(PlayerStatsSystem& skillEffectRefIn);
+	
+	void Heal();
+
+private:
+	PlayerStatsSystem& playerStatSystem;
 };
 
 void TestSkillsSystem();

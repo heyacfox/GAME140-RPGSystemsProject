@@ -1,17 +1,31 @@
 #pragma once
 #include <stdio.h>
+#include <string>
+#include "PlayerStatsSystem.h"
 
 class EquipmentSystem {
 
 public:
 	//test equip function
-	EquipmentSystem();
-	virtual void CheckSystem1();
-	virtual void CheckSystem2();
+	EquipmentSystem(PlayerStatsSystem& SystemInput);
+	
+	virtual void NoGearCheck();
+	virtual void DefenseIncreaseCheck();
 	virtual void AddToInt();
 
+	
+	virtual void CheckSystem3();
+	virtual void CheckSystem4();
+	virtual void SubtractToInt();
+
+
+
 private:
+	PlayerStatsSystem& PlayerStateSystemReference;
 	int defenseInt;
+	int defenseInt2;
+	
+	std::string SteelChestplate;
 };
 
 
@@ -20,16 +34,11 @@ class EquipmentSystem2 {
 
 public:
 	//test unequip function
-	EquipmentSystem2();
-			
-	void CheckSystem3();
-	void CheckSystem4();
-	virtual void SubtractToInt();
+	
 
 private:
-	int defenseInt2;
+	
 
 };
 
 void TestEquipmentSystem();
-void TestEquipmentSystem2();

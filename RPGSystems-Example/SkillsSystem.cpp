@@ -18,6 +18,12 @@ SkillSystem::SkillSystem()
 {
 }
 
+SkillEffect::SkillEffect(PlayerStatsSystem& SkillEffectRefIn) :
+	playerStatSystem(SkillEffectRefIn)
+{}
+
+
+
 void SkillSystem::AddSkill(std::string name)
 {
 	Skill MySkill = Skill(name);
@@ -32,9 +38,11 @@ void SkillSystem::AddSkill(std::string name)
 	SkillList.push_back(MySkill);
 }
 
-void SkillSystem::UseSkill(std::string name)
+// hp mp atk def intel spd
+
+void SkillSystem::UseSkill(PlayerStatsSystem& skillEffectRefIn, std::string name)
 {
-	Skill MySkill = Skill("Heal");
+	Skill MySkill = Skill(name);
 	int p = 0;
 	bool found = false;
 
@@ -47,15 +55,40 @@ void SkillSystem::UseSkill(std::string name)
 		}
 	}
 
+	// Stats: hp, mp, atk, intel, spd
+
 	if (found)
 	{
 		SkillList[p].Use();
-		printf("%s: lvl:%d | uses:%d\n", SkillList[p].name.c_str(), SkillList[p].lvl, SkillList[p].uses);
-
+		if (SkillList[p].name == "Heal")
+		{
+			//skillEffectRefIn.gainHP needs to be implemented
+		}
+		else if (SkillList[p].name == "Fireball")
+		{
+			//skillEffectRefIn.loseMP needs to be implemented
+		}
+		else if (SkillList[p].name == "Speed")
+		{
+			//skillEffectRefIn.gainspd needs to be implemented
+		}
+		else if (SkillList[p].name == "Protect")
+		{
+			//skillEffectRefIn.gainDef needs to be implemented
+		}
+		else if (SkillList[p].name == "ATKpot")
+		{
+			//skillEffectRefIn.gainATK needs to be implemented
+		}
+		else if (SkillList[p].name == "Think")
+		{
+			//skillEffectRefIn.gainIntel needs to be implemented
+		}
 		//Upgrade to lvl 2
 		if (SkillList[p].uses == 10 || SkillList[p].uses == 40 || SkillList[p].uses == 100 || SkillList[p].uses == 250)
 		{
 			SkillList[p].lvl += 1;
+			printf("%s: lvl:%d | uses:%d\n", SkillList[p].name.c_str(), SkillList[p].lvl, SkillList[p].uses);
 			printf("\n%s skill has upgraded its level to level %d\n\n", SkillList[p].name.c_str(), SkillList[p].lvl);
 		}
 	}
@@ -70,12 +103,14 @@ void SkillSystem::UseSkill(std::string name)
 void TestSkillsSystem() {
 
 	SkillSystem MySkills;
+	PlayerStatsSystem player = PlayerStatsSystem();
+	SkillEffect playerEffect = SkillEffect(player);
 
 	MySkills.AddSkill("Heal");
 
 	for (unsigned int i = 0; i < 260; ++i)
 	{
-		MySkills.UseSkill("Heal");
+		MySkills.UseSkill(player,"Heal");
 	}
 
 }
