@@ -137,6 +137,10 @@ void PlayerStatsSystem::GainXP(int exp)
 	currentXP = currentXP + exp;
 }
 
+void PlayerStatsSystem::AddDef(int def)
+{
+}
+
 
 
 
