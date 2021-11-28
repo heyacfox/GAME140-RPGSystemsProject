@@ -11,8 +11,7 @@
 #include "SkillsSystem.h"
 #include "DependentSystem.h"
 
-
-int main() {
+void runTests() {
 	printf("-------\n--Some System Test--\n");
 	TestSomeSystem();
 	printf("-------\n--Dependent System Test--\n");
@@ -33,7 +32,18 @@ int main() {
 	TestSkillsSystem();
 	printf("\n-------\n");
 	printf("End of Tests\n");
+}
 
+void runGameplay() {
+
+}
+
+int main() {
+	
+	runTests();
 
 	system("pause");
+	return 0;
 }
+
+
