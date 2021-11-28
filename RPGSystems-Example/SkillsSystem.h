@@ -24,6 +24,8 @@ public:
 
 	SkillSystem();
 
+	void CheckSkillSystem();
+
 	void AddSkill(std::string Name);
 	void UseSkill(PlayerStatsSystem& SkillEffectRefIn, std::string Name);
 

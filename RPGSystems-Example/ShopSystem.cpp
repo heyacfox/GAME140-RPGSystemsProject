@@ -42,6 +42,15 @@ void TestShopSystem() {
 	shopSystem1.BuyItem(Item_Potion);
 }
 
+void ShopSystem::ShowShop() {
+	printf("Player Gold: %d | ", playerGold);
+	printf("Current Shop Inventory: \n");
+	for (int i = 0; i < itemList.size(); i++) {
+		itemList[i].ShowItemShop();
+	}
+
+}
+
 void ShopSystem::BuyItem(Item Item)
 {
 	playerGold = 500;
@@ -51,7 +60,7 @@ void ShopSystem::BuyItem(Item Item)
 		if (playerGold >= itemList[0].shopItemCost) {
 			if (itemList[0].shopItemQuantity == 0)
 			{
-				printf("There are no potions left to buy.");
+				printf("There are no potions left to buy.\n");
 			}
 			else
 			{
@@ -75,19 +84,19 @@ void ShopSystem::BuyItem(Item Item)
 		{
 			itemList[1].shopItemQuantity--;
 			playerGold = playerGold - itemList[1].shopItemCost;
-			printf("You received 1 Sword");
+			printf("You received 1 Sword\n");
 		}
 		break;
 	case Item_Horse:
 		if (itemList[2].shopItemQuantity)
 		{
-			printf("There are no horses left to buy.");
+			printf("There are no horses left to buy.\n");
 		}
 		else
 		{
 			itemList[2].shopItemQuantity--;
 			playerGold = playerGold - itemList[2].shopItemCost;
-			printf("You received 1 Horse");
+			printf("You received 1 Horse\n");
 		}
 		break;
 	}

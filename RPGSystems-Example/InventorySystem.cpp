@@ -34,7 +34,7 @@ InventorySystem::InventorySystem()
 
 	std::string Sword = "Sword" + std::to_string(SwordAmount);
 
-	std::cout << Sword << std::endl;
+	//std::cout << Sword << std::endl;
 }
 
 void InventorySystem::CheckInventory() 

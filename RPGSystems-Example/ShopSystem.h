@@ -27,6 +27,7 @@ class ShopSystem
 {
 public:
 	int playerGold;
+	void ShowShop();
 	void BuyItem(Item Item);
 	std::vector <ShopItem> itemList;
 };

@@ -22,6 +22,14 @@ SkillEffect::SkillEffect(PlayerStatsSystem& SkillEffectRefIn) :
 	playerStatSystem(SkillEffectRefIn)
 {}
 
+void SkillSystem::CheckSkillSystem() {
+	printf("Your current skills:\n");
+	for (int i = 0; i < SkillList.size(); i++) {
+		Skill selectedSkill = SkillList[i];
+		printf("%s, Level:%d, Times Used:%d\n", selectedSkill.name.c_str(), selectedSkill.lvl, selectedSkill.uses);
+	}
+}
+
 
 
 void SkillSystem::AddSkill(std::string name)

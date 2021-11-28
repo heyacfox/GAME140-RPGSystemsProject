@@ -139,7 +139,7 @@ void PlayerStatsSystem::GainXP(int exp)
 
 void PlayerStatsSystem::AddDef(int def)
 {
-	def = def + 9;
+	Def = Def + 9;
 }
 
 
