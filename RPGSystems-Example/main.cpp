@@ -62,7 +62,7 @@ void runGameplay() {
 	printf("SETUP: COMPLETE\n\n");
 	printf("NARRATOR: Ultimate RPG Adventure having been set up, you awaken in a town...\n");
 	printf("NARRATOR: You are approached by a farmer, who gives you a quest!\n");
-	printf("NARRATOR: The farmer says there is an evil Dragolich in a nearby mountain that is terrorizing the land!\n");
+	printf("NARRATOR: The farmer says there is an evil Dragolich in a nearby mountain that is terrorizing the land!\n They say they want to rule the whole land! Only you can stop them!\n");
 	questSystemInstance.AddToInt();
 	questSystemInstance.ActivateQuest();
 	printf("NARRATOR: You check the status of your quests...\n");
@@ -147,7 +147,10 @@ void runGameplay() {
 	inventorySystemInstance.CheckInventory();
 	printf("NARRATOR: You walk up the final staircase.\n");
 	printf("NARRATOR: \"You cannot stop me!\" the Dragolich says.\n\"I will rule this land!\"\n");
-	printf("NARRATOR: Instead of attacking the Dragolich, you cast Heal on yourself.\n");
+	printf("NARRATOR: Instead of attacking the Dragolich, you drop your sword.\n");
+	inventorySystemInstance.DropSword();
+	inventorySystemInstance.CheckInventory();
+	printf("NARRATOR: Then, you cast heal on yourself.\n");
 	skillSystemInstance.UseSkill(playerStatsSystemInstance, "Heal");
 	skillSystemInstance.CheckSkillSystem();
 	printf("NARRATOR: The Dragolich stops fighting you, surprised at your action.\n");
