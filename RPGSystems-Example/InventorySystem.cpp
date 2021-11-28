@@ -20,7 +20,7 @@ InventorySystem::InventorySystem()
 	Chestplate = "CHESTPLATE";
 	ChestplatePosition = 1;
 	
-	Potion = "POTION":
+	Potion = "POTION";
 	PotionPosition = 0;
 	PotionAmount = 0;
 
@@ -160,7 +160,7 @@ void InventorySystem::DropSword()
 
 void InventorySystem::ShopPotion()
 {
-	if (inventorySize > 0)
+	if (InventorySize > 0)
 	{
 		InventoryItems = InventoryItems + 1;
 		printf("%s has been bought\n", Potion.c_str());
@@ -172,7 +172,7 @@ void InventorySystem::ShopPotion()
 
 void InventorySystem::ShopSword()
 {
-	if (inventorySize > 0)
+	if (InventorySize > 0)
 	{
 		InventoryItems = InventoryItems + 1;
 		printf("%s has been bought\n", Sword.c_str());
@@ -184,7 +184,7 @@ void InventorySystem::ShopSword()
 
 void InventorySystem::ShopHorse()
 {
-	if (inventorySize > 0)
+	if (InventorySize > 0)
 	{
 		InventoryItems = InventoryItems + 1;
 		printf("%s has been bought\n", Horse.c_str());
@@ -272,9 +272,9 @@ void TestInventorySystem()
 	inventoryInstance.CheckInventory();
 	inventoryInstance.AddToInventory();
 	inventoryInstance.CheckInventory();
-	inventoryInstance.UseInventory();
+	//inventoryInstance.UseInventory();
 	inventoryInstance.CheckInventory();
-	inventoryInstance.DropInventory();
+	//inventoryInstance.DropInventory();
 	inventoryInstance.CheckInventory();
 	inventoryInstance.AddToInventory();
 	inventoryInstance.CheckInventory();
