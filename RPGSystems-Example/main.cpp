@@ -62,7 +62,7 @@ void runGameplay() {
 	printf("SETUP: COMPLETE\n\n");
 	printf("NARRATOR: Ultimate RPG Adventure having been set up, you awaken in a town...\n");
 	printf("NARRATOR: You are approached by a farmer, who gives you a quest!\n");
-	printf("NARRATOR: The farmer says \"There is an evil Dragolich in a nearby mountain that is terrorizing the land!\n The Dragolich says they want to rule the whole land! Only you can stop them!\n");
+	printf("NARRATOR: The farmer says \"There is an evil Dragolich in a nearby mountain that is terrorizing the land!\n The Dragolich says they want to rule the whole land! Only you can stop them!\"\n");
 	questSystemInstance.AddToInt();
 	questSystemInstance.ActivateQuest();
 	printf("NARRATOR: You check the status of your quests...\n");
@@ -129,11 +129,11 @@ void runGameplay() {
 	printf("NARRATOR: You equip the chestplate.\n");
 	equipmentSystemInstance.AddToInt();
 	equipmentSystemInstance.DefenseIncreaseCheck();
-	printf("NARRATOR: Equipping the chestplate also helped you gain EXP...for some reason.\n");
+	printf("NARRATOR: Equipping the chestplate also helped you gain EXP...for some reason.\nIt was very hard to put on.\n");
 	playerStatsSystemInstance.CheckPlayerLvl();
 	playerStatsSystemInstance.CheckSystem();
 	printf("NARRATOR: Equipped with magic and items, you set out to complete your quest.\n");
-	printf("NARRATOR: The mountain of terror looms ahead. You encounter the Dragolich's minions and throw 30 fireballs at them until they flee in terror.\n");
+	printf("NARRATOR: The mountain of terror looms ahead. You encounter the Dragolich's minions and throw 30 fireballs at them.\n");
 	for (int i = 0; i < 30; i++) {
 		skillSystemInstance.UseSkill(playerStatsSystemInstance, "Fireball");
 	}
@@ -141,11 +141,11 @@ void runGameplay() {
 	playerStatsSystemInstance.GainXP(500);
 	playerStatsSystemInstance.CheckPlayerLvl();
 	playerStatsSystemInstance.CheckSystem();
-	printf("NARRATOR: The minions defeated, you use a potion before your final fight.\n");
+	printf("NARRATOR: The minions flee, and you use a potion before your final fight.\n");
 	inventorySystemInstance.CheckInventory();
 	inventorySystemInstance.UsePotion();
 	inventorySystemInstance.CheckInventory();
-	printf("NARRATOR: You walk up the final staircase.\n");
+	printf("NARRATOR: You walk up the final staircase and see the Dragolich, gaunt but with a fierce expression.\n");
 	printf("NARRATOR: \"You cannot stop me!\" the Dragolich says.\n\"I will rule this broken land and make it glorious!\"\n");
 	printf("NARRATOR: Instead of attacking the Dragolich, you drop your sword.\n");
 	inventorySystemInstance.DropSword();
@@ -154,8 +154,8 @@ void runGameplay() {
 	printf("NARRATOR: Then, you cast heal on yourself.\n");
 	skillSystemInstance.UseSkill(playerStatsSystemInstance, "Heal");
 	skillSystemInstance.CheckSkillSystem();
-	printf("NARRATOR: The Dragolich stops trying to fight you, surprised at your action.\n");
-	printf("NARRATOR: \"Strange. I saw how broken the land was,\" the Dragolich says, \"and I thought that if I could control it, I could fix it.\"\n"
+	printf("NARRATOR: The Dragolich stops trying to fight you, surprised at your actions.\n");
+	printf("NARRATOR: \"Strange. I saw how broken the land was,\" the Dragolich says, \"and I thought that if I was ruling it, I could fix it.\"\n"
 		"I thought I was trying to help others by telling them what they should do, but everyone else just thought I was being overly controlling.\n"
 		"I couldn't see the negative impact I was causing because I wasn't taking time to take care of myself.\n"
 		"I need to remember to take care of myself before trying to solve everyone else's problems.\"\n");
