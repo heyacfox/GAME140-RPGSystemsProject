@@ -62,7 +62,7 @@ void runGameplay() {
 	printf("SETUP: COMPLETE\n\n");
 	printf("NARRATOR: Ultimate RPG Adventure having been set up, you awaken in a town...\n");
 	printf("NARRATOR: You are approached by a farmer, who gives you a quest!\n");
-	printf("NARRATOR: The farmer says there is an evil Dragolich in a nearby mountain that is terrorizing the land!\n They say they want to rule the whole land! Only you can stop them!\n");
+	printf("NARRATOR: The farmer says \"There is an evil Dragolich in a nearby mountain that is terrorizing the land!\n The Dragolich says they want to rule the whole land! Only you can stop them!\n");
 	questSystemInstance.AddToInt();
 	questSystemInstance.ActivateQuest();
 	printf("NARRATOR: You check the status of your quests...\n");
@@ -88,7 +88,7 @@ void runGameplay() {
 	printf("NARRATOR: The shopkeeper says you are the LUCKY WINNER OF THE DAY and for some reason gives you 400 gold.\n");
 	shopSystemInstance.BuyItem(Item_Horse);
 	printf("NARRATOR: On thinking it over, the shopkeeper was too attached to the horse to part with it.\n");
-	printf("NARRATOR: Feeling bad about the horse thing, the shopkeeper gave you a 20 gold discount on the sword.");
+	printf("NARRATOR: Feeling bad about the horse thing, the shopkeeper gives you a 20 gold discount on the sword.");
 	shopSystemInstance.BuyItem(Item_Sword);
 	shopSystemInstance.ShowShop();
 	printf("NARRATOR: The shopkeeper was unwilling to part with the horse, but you still get a potion and a sword.\n");
@@ -133,7 +133,7 @@ void runGameplay() {
 	playerStatsSystemInstance.CheckPlayerLvl();
 	playerStatsSystemInstance.CheckSystem();
 	printf("NARRATOR: Equipped with magic and items, you set out to complete your quest.\n");
-	printf("NARRATOR: The mountain of terror looms ahead. You encounter the Dragolich's minions and throw fireballs at them until they perish.\n");
+	printf("NARRATOR: The mountain of terror looms ahead. You encounter the Dragolich's minions and throw 30 fireballs at them until they flee in terror.\n");
 	for (int i = 0; i < 30; i++) {
 		skillSystemInstance.UseSkill(playerStatsSystemInstance, "Fireball");
 	}
@@ -146,14 +146,15 @@ void runGameplay() {
 	inventorySystemInstance.UsePotion();
 	inventorySystemInstance.CheckInventory();
 	printf("NARRATOR: You walk up the final staircase.\n");
-	printf("NARRATOR: \"You cannot stop me!\" the Dragolich says.\n\"I will rule this land!\"\n");
+	printf("NARRATOR: \"You cannot stop me!\" the Dragolich says.\n\"I will rule this broken land and make it glorious!\"\n");
 	printf("NARRATOR: Instead of attacking the Dragolich, you drop your sword.\n");
 	inventorySystemInstance.DropSword();
 	inventorySystemInstance.CheckInventory();
+	printf("NARRATOR: \"Huh? What's that about? Aren't you going to fight me?\"\n");
 	printf("NARRATOR: Then, you cast heal on yourself.\n");
 	skillSystemInstance.UseSkill(playerStatsSystemInstance, "Heal");
 	skillSystemInstance.CheckSkillSystem();
-	printf("NARRATOR: The Dragolich stops fighting you, surprised at your action.\n");
+	printf("NARRATOR: The Dragolich stops trying to fight you, surprised at your action.\n");
 	printf("NARRATOR: \"Strange. I saw how broken the land was,\" the Dragolich says, \"and I thought that if I could control it, I could fix it.\"\n"
 		"I thought I was trying to help others by telling them what they should do, but everyone else just thought I was being overly controlling.\n"
 		"I couldn't see the negative impact I was causing because I wasn't taking time to take care of myself.\n"
